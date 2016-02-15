@@ -5,12 +5,19 @@ follows:
 
 ####Two-player Bayesian games
 
-- **Item Bidding Auctions**: 
-- **Multi-unit Auctions**:
+- **Item Bidding Auctions**: These are combinatorial auctions with item bidding. The type of a
+  bidder gives the valuation function for the different subsets of the available items.
+- **Multi-unit Auctions**: This is a special case of combinatorial auctions where the items being
+  sold are identical. The type of a player gives the valuation function representing the player's
+  marginal value for recieving a copy of an item.
 - **Blotto Games**: The players in this game have a given number of soldiers that are to be assigned
   to n hills. Each player has a value for each of the different hills, which is received if the
-  player has assigned more soldiers to the hill than the other player.
-- **Adjusted Winner**:
+  player has assigned more soldiers to the hill than the other player. The utility for each player
+  is then the sum of the valuation gotten on all hills.
+- **Adjusted Winner**: In these games, the players wish to split a set of divisible items. The
+  players have preferences for the items expressed by numerical values where the sum of the values
+  over all items sums up to 1. In a similar fashion to Blotto games, the players have to divide a
+  number of points across the available set of items.
 
 ####Multiplayer Polymatrix games
 
@@ -62,7 +69,13 @@ follows:
         All-pay 
         -g Multiunit: Indicates that the multi-unit generators should be used
         -t types : Number of types per player
-        -v val : A string representing the valuation of all items for all player types. 
+        -v val : A string representing the valuation of all items for all player types. Each value
+        represents the marginal valuation for receiving the next copy of the item. Example:
+            - Additive valuation : '5 5 5 5' is an additive valuation function for four items where
+              the value of a single copy is 5.
+            - Subadditive valuation : '10 7 7 3' is a sub-additive valuation function for four
+              items.
+
 
 - **Graph structure parameters**:
 
